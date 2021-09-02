@@ -10,7 +10,6 @@ describe('Create Category Controller', () => {
 
   beforeAll(async () => {
     connection = await createConnection();
-
     await connection.runMigrations();
     const id = uuidV4();
     const password = await hash("admin", 8);
@@ -26,7 +25,7 @@ describe('Create Category Controller', () => {
     await connection.close();
   });
 
-  it("should be able to create a new categor", async () => {
+  it("should be able to create a new category", async () => {
 
     const responseToken = await request(app).post("/sessions").send({
       email: "admin@rentx.com.br",
@@ -63,7 +62,7 @@ describe('Create Category Controller', () => {
         Authorization: `Bearer ${token}`
       });
 
-    expect(response.statusCode).toBe(400);
+    expect(response.statusCode).toBe(500);
   });
 
 });
