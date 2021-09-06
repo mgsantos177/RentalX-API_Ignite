@@ -4,5 +4,6 @@ dist
 .env.test
 tmp
 coverage
+ignite-nodejs.pem
 
 
